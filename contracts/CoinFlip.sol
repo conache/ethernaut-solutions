@@ -1,7 +1,7 @@
-//SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
 
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
 
 contract CoinFlip {
     using SafeMath for uint256;
@@ -56,7 +56,7 @@ contract Hack {
     uint256 FACTOR =
         57896044618658097711785492504343953926634992332820282019728792003956564819968;
 
-    constructor() {
+    constructor() public {
         _coinFlip = CoinFlip(0xB3187357206B63425cbE2a850E628354e4Ce0Ca0);
     }
 
