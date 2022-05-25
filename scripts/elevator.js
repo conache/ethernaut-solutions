@@ -11,13 +11,12 @@ async function main() {
   const Elevator = await hre.ethers.getContractFactory("Elevator");
   const elevator = await Elevator.attach(elevatorInstAddr);
 
-  console.log("Elevator address:", elevator.address);
-
   const House = await hre.ethers.getContractFactory("House");
   const house = await House.deploy(elevator.address);
 
-  console.log("House address:", house.address);
-  // await house.trickElevator();
+  console.log("Elevator reached top:", await elevator.top());
+  await house.trickElevator();
+  console.log("Elevator reached top:", await elevator.top());
 }
 
 // We recommend this pattern to be able to use async/await everywhere
