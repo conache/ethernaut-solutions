@@ -44,4 +44,24 @@ contract GatekeeperOne {
         entrant = tx.origin;
         return true;
     }
+
+    function testGateOne() public {
+        console.log(msg.sender != tx.origin);
+    }
+}
+
+contract GateKeeperHack {
+    using SafeMath for uint256;
+    GatekeeperOne private gateKeeper;
+
+    constructor(address _gateKeeper) public {
+        gateKeeper = GatekeeperOne(_gateKeeper);
+    }
+
+    function tryEnter(bytes8 _gateKey) public {
+        console.log(gasleft());
+        console.log(uint256(0).mod(8191));
+        gateKeeper.testGateOne();
+        // gateKeeper.enter(bytes8(_gateKey));
+    }
 }
