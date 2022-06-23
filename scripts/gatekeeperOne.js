@@ -10,7 +10,9 @@ async function main() {
   const gateKeeperHack = await GateKeeperHack.deploy(gateKeeperInstance.address);
   await gateKeeperHack.deployed();
 
-  await gateKeeperHack.tryEnter("0x0000000000000000", { gasLimit: 80000 });
+  console.log("Entrant:", await gateKeeperInstance.entrant());
+  await gateKeeperHack.tryEnter(4294976102);
+  console.log("Entrant:", await gateKeeperInstance.entrant());
 }
 
 // We recommend this pattern to be able to use async/await everywhere
