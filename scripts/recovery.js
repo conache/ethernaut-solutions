@@ -1,6 +1,5 @@
 const hre = require("hardhat");
 const { ethers } = hre;
-const { BigNumber } = require("ethers");
 
 async function main() {
   const [recoverer] = await ethers.getSigners();
