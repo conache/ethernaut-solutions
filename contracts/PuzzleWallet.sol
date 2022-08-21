@@ -102,12 +102,12 @@ contract PuzzleWallet {
     }
 }
 
-contract PuzzleWalletHack {
-    address public ownerSlot;
-    uint256 public maxBalanceSlot;
+// contract PuzzleWalletHack {
+//     address public ownerSlot;
+//     uint256 public maxBalanceSlot;
 
-    function overrideSlots() {
-        ownerSlot = uint256(msg.sender);
-        maxBalanceSlot = uint256(msg.sender);
-    }
-}
+//     function overrideSlots() public {
+//         ownerSlot = msg.sender;
+//         maxBalanceSlot = uint256(msg.sender);
+//     }
+// }
