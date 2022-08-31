@@ -1,15 +1,29 @@
-# Basic Sample Hardhat Project
+# Ethernaut
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+✅ My solutions to the [Ethernaut Challenge](https://ethernaut.openzeppelin.com/).
 
-Try running some of the following tasks:
+## Development
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+1. Install project dependencies
+
+```
+  yarn install
+```
+
+2. Setup environment variables:
+
+- Create an .env file
+- Populate values specified in the .env.example file.
+
+## Running solutions
+
+The solutions are implemented in this repo can be found in [`/scripts`](./scripts).
+
+To run a solution script, you you'll need to:
+
+- update the contract instance address in the script file
+- run the following command:
+
+```
+npx hardhat run scripts/<script-name> --network rinkeby
 ```
